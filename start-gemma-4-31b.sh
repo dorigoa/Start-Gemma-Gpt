@@ -2,7 +2,7 @@
   --model /nvme/gguf/Gemma-4-31B-it-qat/Gemma-4-31B-it-qat-UD-Q4_K_XL.gguf \
   --model-draft /nvme/gguf/Gemma-4-31B-it-qat/mtp-gemma-4-31B-it-Q4_0.gguf \
   --alias Gemma-4-31B-it-qat \
-  --spec-type draft-mtp --spec-draft-n-max 4 --spec-draft-device CUDA1 --spec-draft-sampling probabilistic \
+  --spec-type draft-mtp --spec-draft-n-max 4 --spec-draft-device CUDA1 --spec-draft-sampling probabilistic -np 1 \
   --device CUDA0,CUDA1 --split-mode layer -ngl 999 \
   -c 131072 -fa on -fitt 512 --cache-type-k q8_0 --cache-type-v q8_0 \
   --parallel 1 --no-context-shift \
@@ -14,4 +14,5 @@
   --reasoning on \
   --reasoning-budget 24576 \
   --reasoning-budget-message "I have reasoned enough. I will now write the answer." \
+  --no-webui \
   --log-file /tmp/llama-server.log
