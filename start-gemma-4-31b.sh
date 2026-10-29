@@ -14,5 +14,5 @@
   --reasoning on \
   --reasoning-budget 24576 \
   --reasoning-budget-message "I have reasoned enough. I will now write the answer." \
-  --no-webui \
+  --no-ui \
   --log-file /tmp/llama-server.log
