@@ -20,7 +20,7 @@ REAS="$1"
   --moe-cache-mib 6000 \
   --host 0.0.0.0 --port 11000 \
   --fit-target 2048 \
-  --no-webui \
+  --no-ui \
   --temp 1.0 --top-p 1.0 --top-k 100 --min-p 0.0 \
   --chat-template-kwargs '{"reasoning_effort": "$REAS"}' \
   --reasoning-budget 32768 \
