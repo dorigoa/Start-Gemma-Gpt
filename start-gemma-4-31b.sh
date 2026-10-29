@@ -1,0 +1,16 @@
+/opt/llama.cpp/llama-server \
+  --model /nvme/gguf/Gemma-4-31B-it-qat/Gemma-4-31B-it-qat-UD-Q4_K_XL.gguf \
+  --model-draft /nvme/gguf/Gemma-4-31B-it-qat/mtp-gemma-4-31B-it-Q4_0.gguf \
+  --alias Gemma-4-31B-it-qat \
+  --spec-type draft-mtp --spec-draft-n-max 5 --spec-draft-device CUDA1 --spec-draft-sampling probabilistic \
+  --device CUDA0,CUDA1 --split-mode layer -ngl 999 \
+  -c 131072 -fa on -fitt 512 --cache-type-k q8_0 --cache-type-v q8_0 \
+  --parallel 1 --no-context-shift \
+  --host 0.0.0.0 --port 11000 --metrics --jinja --no-warmup \
+  --temp 1.0 --top-p 0.95 --top-k 64 \
+  --seed 123456789 \
+  --chat-template-file /nvme/gguf/Gemma-4-31B-it-qat/chat-template.jinja \
+  --chat-template-kwargs '{"preserve_thinking": true}' \
+  --reasoning on \
+  --reasoning-budget 24576 \
+  --reasoning-budget-message "I have reasoned enough. I will now write the answer."
